@@ -1,7 +1,7 @@
 /**
  * angular-input-masks
  * Personalized input masks for AngularJS
- * @version v2.4.0
+ * @version v2.4.1
  * @link http://github.com/assisrafael/angular-input-masks
  * @license MIT
  */
@@ -650,7 +650,7 @@ function NumberMaskDirective($locale, $parse, PreFormatters, NumberMasks) {
 				}
 
 				var valueToFormat = PreFormatters.clearDelimitersAndLeadingZeros(value) || '0';
-				var formatedValue = viewMask.apply(valueToFormat);
+				var formatedValue = viewMask.apply(valueToFormat !== '0' ? valueToFormat : '');
 				var actualNumber = parseFloat(modelMask.apply(valueToFormat));
 
 				if (angular.isDefined(attrs.uiNegativeNumber)) {
